@@ -40,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour {
             newPos.x = newPos.x - currentSpeed;
             transform.position = newPos;
         }
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame) {
+        if (Keyboard.current.upArrowKey.wasPressedThisFrame && jumping == false) {
             Rigidbody2D body = GetComponent<Rigidbody2D>();
             jumping = true;
             body.AddForceY(jumpForce, ForceMode2D.Impulse);
