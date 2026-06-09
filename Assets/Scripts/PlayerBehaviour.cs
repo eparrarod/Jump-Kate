@@ -7,14 +7,12 @@ public class PlayerBehaviour : MonoBehaviour {
     public float jumpForce;
     public bool moving;
     public bool jumping;
-    public bool inAir;
-   // Rigidbody2D body;
+   Rigidbody2D body;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         moving = false;
         jumping = false;
-        inAir = false;
-       // body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -41,7 +39,6 @@ public class PlayerBehaviour : MonoBehaviour {
             transform.position = newPos;
         }
         if (Keyboard.current.upArrowKey.wasPressedThisFrame && jumping == false) {
-            Rigidbody2D body = GetComponent<Rigidbody2D>();
             jumping = true;
             body.AddForceY(jumpForce, ForceMode2D.Impulse);
         }
