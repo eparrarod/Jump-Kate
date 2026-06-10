@@ -2,11 +2,12 @@ using System;
 using UnityEngine;
 
 public class CameraBehaviour : MonoBehaviour {
-    private Camera cam;
     public float offset;
+    public GameObject spawner;
+    public GameObject despawner;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
-        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -15,13 +16,16 @@ public class CameraBehaviour : MonoBehaviour {
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("jumper")) {
-            Vector3 newPos = cam.transform.position;
-            newPos.y = newPos.y + offset;
-            cam.transform.position = newPos;
+        if (other.gameObject.CompareTag("player")) {
+            moveUp(gameObject);
+            moveUp(spawner);
+            moveUp(despawner);
         }
-        else {
-            print(other.gameObject.name);
-        }
+    }
+    
+    public void moveUp(GameObject objectToMove){
+        Vector3 newPos = objectToMove.transform.position;
+        newPos.y = newPos.y + offset;
+        objectToMove.transform.position = newPos;
     }
 }
