@@ -16,7 +16,7 @@ public class CameraBehaviour : MonoBehaviour {
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("player")) {
+        if (other.gameObject.CompareTag("Player")) {
             moveUp(gameObject);
             moveUp(spawner);
             moveUp(despawner);
