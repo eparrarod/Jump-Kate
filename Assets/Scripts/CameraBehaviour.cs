@@ -20,6 +20,7 @@ public class CameraBehaviour : MonoBehaviour {
             moveUp(gameObject);
             moveUp(spawner);
             moveUp(despawner);
+            spawner.GetComponent<SpawnerBehaviour>().createPlatform();
         }
     }
     
